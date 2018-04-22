@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PSAS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="people_master">
+          <Key>
+            <PropertyRef Name="peopleid" />
+          </Key>
+          <Property Name="OrgID" Type="int" Nullable="false" />
+          <Property Name="Salutation" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LineManagerID" Type="int" />
+          <Property Name="LineManagerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LineManageremailID" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeEmailID" Type="nvarchar" MaxLength="50" />
+          <Property Name="LandlinePhone" Type="bigint" />
+          <Property Name="MobilePhone1" Type="bigint" />
+          <Property Name="MobilePhone2" Type="bigint" />
+          <Property Name="EmployeeNumber" Type="int" />
+          <Property Name="Department" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Updatedon" Type="datetime" />
+          <Property Name="Updatedby" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra1" Type="int" />
+          <Property Name="Extra2" Type="int" />
+          <Property Name="Extra3" Type="int" />
+          <Property Name="Extra4" Type="int" />
+          <Property Name="Extra5" Type="int" />
+          <Property Name="Extra6" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra7" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra8" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra9" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra10" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra11" Type="datetime" />
+          <Property Name="Extra12" Type="datetime" />
+          <Property Name="Extra13" Type="datetime" />
+          <Property Name="Extra14" Type="datetime" />
+          <Property Name="Extra15" Type="datetime" />
+          <Property Name="peopleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="risk_master">
+          <Key>
+            <PropertyRef Name="RiskID" />
+          </Key>
+          <Property Name="RiskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SourceType" Type="int" />
+          <Property Name="SourceDetail" Type="nvarchar" MaxLength="100" />
+          <Property Name="Background" Type="nvarchar" MaxLength="100" />
+          <Property Name="Attachment" Type="varbinary" MaxLength="500" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="100" />
+          <Property Name="Opportunityorhreat" Type="int" />
+          <Property Name="Stage" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="RevealIdentity" Type="int" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="100" />
+          <Property Name="Category" Type="int" />
+          <Property Name="SubCategory" Type="int" />
+          <Property Name="InternalOrExternal" Type="int" />
+          <Property Name="ImpactedOrganisation" Type="int" />
+          <Property Name="Levell" Type="int" />
+          <Property Name="RiskOwnerID" Type="int" />
+          <Property Name="RiskOwnerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RiskOwnerEmailid" Type="nvarchar" MaxLength="50" />
+          <Property Name="SMEID" Type="int" />
+          <Property Name="SMEName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SMEEmailid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Probability" Type="int" />
+          <Property Name="Impact" Type="int" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="InherentRiskScore" Type="int" />
+          <Property Name="InherentRiskgrading" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Updatedon" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Extra1" Type="int" />
+          <Property Name="Extra2" Type="int" />
+          <Property Name="Extra3" Type="int" />
+          <Property Name="Extra4" Type="int" />
+          <Property Name="Extra5" Type="int" />
+          <Property Name="Extra6" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra7" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra8" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra9" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra10" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra11" Type="datetime" />
+          <Property Name="Extra12" Type="datetime" />
+          <Property Name="Extra13" Type="datetime" />
+          <Property Name="Extra14" Type="datetime" />
+          <Property Name="Extra15" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__risk_mast__RiskO__72C60C4A">
+          <End Role="people_master" Type="Self.people_master" Multiplicity="0..1" />
+          <End Role="risk_master" Type="Self.risk_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people_master">
+              <PropertyRef Name="peopleid" />
+            </Principal>
+            <Dependent Role="risk_master">
+              <PropertyRef Name="RiskOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PSAS_DBModelStoreContainer">
+          <EntitySet Name="people_master" EntityType="Self.people_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="risk_master" EntityType="Self.risk_master" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__risk_mast__RiskO__72C60C4A" Association="Self.FK__risk_mast__RiskO__72C60C4A">
+            <End Role="people_master" EntitySet="people_master" />
+            <End Role="risk_master" EntitySet="risk_master" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PSAS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="people_master">
+          <Key>
+            <PropertyRef Name="peopleid" />
+          </Key>
+          <Property Name="OrgID" Type="Int32" Nullable="false" />
+          <Property Name="Salutation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LineManagerID" Type="Int32" />
+          <Property Name="LineManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LineManageremailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeEmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LandlinePhone" Type="Int64" />
+          <Property Name="MobilePhone1" Type="Int64" />
+          <Property Name="MobilePhone2" Type="Int64" />
+          <Property Name="EmployeeNumber" Type="Int32" />
+          <Property Name="Department" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Updatedon" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra1" Type="Int32" />
+          <Property Name="Extra2" Type="Int32" />
+          <Property Name="Extra3" Type="Int32" />
+          <Property Name="Extra4" Type="Int32" />
+          <Property Name="Extra5" Type="Int32" />
+          <Property Name="Extra6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra11" Type="DateTime" Precision="3" />
+          <Property Name="Extra12" Type="DateTime" Precision="3" />
+          <Property Name="Extra13" Type="DateTime" Precision="3" />
+          <Property Name="Extra14" Type="DateTime" Precision="3" />
+          <Property Name="Extra15" Type="DateTime" Precision="3" />
+          <Property Name="peopleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="risk_master" Relationship="Self.FK__risk_mast__RiskO__72C60C4A" FromRole="people_master" ToRole="risk_master" />
+        </EntityType>
+        <EntityType Name="risk_master">
+          <Key>
+            <PropertyRef Name="RiskID" />
+          </Key>
+          <Property Name="RiskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SourceType" Type="Int32" />
+          <Property Name="SourceDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Background" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Attachment" Type="Binary" MaxLength="500" FixedLength="false" />
+          <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Opportunityorhreat" Type="Int32" />
+          <Property Name="Stage" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="RevealIdentity" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="SubCategory" Type="Int32" />
+          <Property Name="InternalOrExternal" Type="Int32" />
+          <Property Name="ImpactedOrganisation" Type="Int32" />
+          <Property Name="Levell" Type="Int32" />
+          <Property Name="RiskOwnerID" Type="Int32" />
+          <Property Name="RiskOwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RiskOwnerEmailid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SMEID" Type="Int32" />
+          <Property Name="SMEName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SMEEmailid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Probability" Type="Int32" />
+          <Property Name="Impact" Type="Int32" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="InherentRiskScore" Type="Int32" />
+          <Property Name="InherentRiskgrading" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updatedon" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Extra1" Type="Int32" />
+          <Property Name="Extra2" Type="Int32" />
+          <Property Name="Extra3" Type="Int32" />
+          <Property Name="Extra4" Type="Int32" />
+          <Property Name="Extra5" Type="Int32" />
+          <Property Name="Extra6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extra11" Type="DateTime" Precision="3" />
+          <Property Name="Extra12" Type="DateTime" Precision="3" />
+          <Property Name="Extra13" Type="DateTime" Precision="3" />
+          <Property Name="Extra14" Type="DateTime" Precision="3" />
+          <Property Name="Extra15" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="people_master" Relationship="Self.FK__risk_mast__RiskO__72C60C4A" FromRole="risk_master" ToRole="people_master" />
+        </EntityType>
+        <Association Name="FK__risk_mast__RiskO__72C60C4A">
+          <End Role="people_master" Type="Self.people_master" Multiplicity="0..1" />
+          <End Role="risk_master" Type="Self.risk_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people_master">
+              <PropertyRef Name="peopleid" />
+            </Principal>
+            <Dependent Role="risk_master">
+              <PropertyRef Name="RiskOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PSAS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="people_master" EntityType="Self.people_master" />
+          <EntitySet Name="risk_master" EntityType="Self.risk_master" />
+          <AssociationSet Name="FK__risk_mast__RiskO__72C60C4A" Association="Self.FK__risk_mast__RiskO__72C60C4A">
+            <End Role="people_master" EntitySet="people_master" />
+            <End Role="risk_master" EntitySet="risk_master" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PSAS_DBModelStoreContainer" CdmEntityContainer="PSAS_DBEntities">
+          <EntitySetMapping Name="people_master">
+            <EntityTypeMapping TypeName="PSAS_DBModel.people_master">
+              <MappingFragment StoreEntitySet="people_master">
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LineManagerID" ColumnName="LineManagerID" />
+                <ScalarProperty Name="LineManagerName" ColumnName="LineManagerName" />
+                <ScalarProperty Name="LineManageremailID" ColumnName="LineManageremailID" />
+                <ScalarProperty Name="EmployeeEmailID" ColumnName="EmployeeEmailID" />
+                <ScalarProperty Name="LandlinePhone" ColumnName="LandlinePhone" />
+                <ScalarProperty Name="MobilePhone1" ColumnName="MobilePhone1" />
+                <ScalarProperty Name="MobilePhone2" ColumnName="MobilePhone2" />
+                <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Extra1" ColumnName="Extra1" />
+                <ScalarProperty Name="Extra2" ColumnName="Extra2" />
+                <ScalarProperty Name="Extra3" ColumnName="Extra3" />
+                <ScalarProperty Name="Extra4" ColumnName="Extra4" />
+                <ScalarProperty Name="Extra5" ColumnName="Extra5" />
+                <ScalarProperty Name="Extra6" ColumnName="Extra6" />
+                <ScalarProperty Name="Extra7" ColumnName="Extra7" />
+                <ScalarProperty Name="Extra8" ColumnName="Extra8" />
+                <ScalarProperty Name="Extra9" ColumnName="Extra9" />
+                <ScalarProperty Name="Extra10" ColumnName="Extra10" />
+                <ScalarProperty Name="Extra11" ColumnName="Extra11" />
+                <ScalarProperty Name="Extra12" ColumnName="Extra12" />
+                <ScalarProperty Name="Extra13" ColumnName="Extra13" />
+                <ScalarProperty Name="Extra14" ColumnName="Extra14" />
+                <ScalarProperty Name="Extra15" ColumnName="Extra15" />
+                <ScalarProperty Name="peopleid" ColumnName="peopleid" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="risk_master">
+            <EntityTypeMapping TypeName="PSAS_DBModel.risk_master">
+              <MappingFragment StoreEntitySet="risk_master">
+                <ScalarProperty Name="RiskID" ColumnName="RiskID" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SourceType" ColumnName="SourceType" />
+                <ScalarProperty Name="SourceDetail" ColumnName="SourceDetail" />
+                <ScalarProperty Name="Background" ColumnName="Background" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Opportunityorhreat" ColumnName="Opportunityorhreat" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RevealIdentity" ColumnName="RevealIdentity" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="InternalOrExternal" ColumnName="InternalOrExternal" />
+                <ScalarProperty Name="ImpactedOrganisation" ColumnName="ImpactedOrganisation" />
+                <ScalarProperty Name="Levell" ColumnName="Levell" />
+                <ScalarProperty Name="RiskOwnerID" ColumnName="RiskOwnerID" />
+                <ScalarProperty Name="RiskOwnerName" ColumnName="RiskOwnerName" />
+                <ScalarProperty Name="RiskOwnerEmailid" ColumnName="RiskOwnerEmailid" />
+                <ScalarProperty Name="SMEID" ColumnName="SMEID" />
+                <ScalarProperty Name="SMEName" ColumnName="SMEName" />
+                <ScalarProperty Name="SMEEmailid" ColumnName="SMEEmailid" />
+                <ScalarProperty Name="Probability" ColumnName="Probability" />
+                <ScalarProperty Name="Impact" ColumnName="Impact" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="InherentRiskScore" ColumnName="InherentRiskScore" />
+                <ScalarProperty Name="InherentRiskgrading" ColumnName="InherentRiskgrading" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Updatedon" ColumnName="Updatedon" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Extra1" ColumnName="Extra1" />
+                <ScalarProperty Name="Extra2" ColumnName="Extra2" />
+                <ScalarProperty Name="Extra3" ColumnName="Extra3" />
+                <ScalarProperty Name="Extra4" ColumnName="Extra4" />
+                <ScalarProperty Name="Extra5" ColumnName="Extra5" />
+                <ScalarProperty Name="Extra6" ColumnName="Extra6" />
+                <ScalarProperty Name="Extra7" ColumnName="Extra7" />
+                <ScalarProperty Name="Extra8" ColumnName="Extra8" />
+                <ScalarProperty Name="Extra9" ColumnName="Extra9" />
+                <ScalarProperty Name="Extra10" ColumnName="Extra10" />
+                <ScalarProperty Name="Extra11" ColumnName="Extra11" />
+                <ScalarProperty Name="Extra12" ColumnName="Extra12" />
+                <ScalarProperty Name="Extra13" ColumnName="Extra13" />
+                <ScalarProperty Name="Extra14" ColumnName="Extra14" />
+                <ScalarProperty Name="Extra15" ColumnName="Extra15" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

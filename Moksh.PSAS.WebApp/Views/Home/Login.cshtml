@@ -1,0 +1,57 @@
+﻿@model  Moksh.PSAS.Common.LoginModel
+@{
+	ViewBag.Title = "PSAS Application";
+}
+
+<h2>Welcome To PSAS</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+
+	if (ViewData.ContainsKey("PeopleID") && ViewData["PeopleID"] != null && ViewData["PeopleID"].ToString() != "0")
+	{
+		<span>User ID:</span> @ViewData["PeopleID"]
+
+	}
+	else if (ViewData.ContainsKey("PeopleID") && (ViewData["PeopleID"] == null || ViewData["PeopleID"].ToString() == "0"))
+	{
+		<span>Invalid User ID or password.Pleaase try Again.</span>
+	}
+	
+	@Html.ValidationSummary(true)
+	@*if (@ViewBag.Message != null)
+		{
+
+			<div style="border:1px solid red">
+				@ViewBag.Message
+			</div>
+		}*@
+
+	<table>
+		<tr>
+			<td>@Html.LabelFor(a => a.Email)</td>
+			<td>@Html.TextBoxFor(a => a.Email)</td>
+			<td>@Html.ValidationMessageFor(a => a.Email)</td>
+		</tr>
+		<tr>
+			<td>
+				@Html.LabelFor(a => a.Password)
+			</td>
+			<td>
+				@Html.PasswordFor(a => a.Password)
+			</td>
+			<td>
+				@Html.ValidationMessageFor(a => a.Password)
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="submit" value="Login" />
+			</td>
+
+			<td></td>
+		</tr>
+	</table>
+
+}

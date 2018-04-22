@@ -3,9 +3,53 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moksh.PSAS.WebApp", "Moksh.PSAS.WebApp\Moksh.PSAS.WebApp.csproj", "{831DE640-5058-4DFA-8881-782822B6FB2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moksh.PSAS.Bussiness", "Moksh.PSAS.Bussiness\Moksh.PSAS.Bussiness.csproj", "{7542D159-4E69-4624-B9A0-0AA04E8EF5FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moksh.PSAS.DataAdapter", "Moksh.PSAS.DataAdapter\Moksh.PSAS.DataAdapter.csproj", "{F662830F-A813-4E20-8A35-0E4C46D75120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moksh.PSAS.Common", "Moksh.PSAS.Common\Moksh.PSAS.Common.csproj", "{900655D5-341E-4A59-9405-08E98F2F8FA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLayer", "BusinessLayer", "{E1108D5A-ECB0-4049-A789-A4B0DAEAC14B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PersistanceLayer", "PersistanceLayer", "{34B4EAED-D4DA-4CCA-BF09-C570D74A4303}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonLayer", "CommonLayer", "{024BEA24-36F4-4C51-A72B-593A1BCFE3FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{3C2C2981-F2CC-459C-99EC-AEC1523524D3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{831DE640-5058-4DFA-8881-782822B6FB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831DE640-5058-4DFA-8881-782822B6FB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831DE640-5058-4DFA-8881-782822B6FB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831DE640-5058-4DFA-8881-782822B6FB2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7542D159-4E69-4624-B9A0-0AA04E8EF5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7542D159-4E69-4624-B9A0-0AA04E8EF5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7542D159-4E69-4624-B9A0-0AA04E8EF5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7542D159-4E69-4624-B9A0-0AA04E8EF5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F662830F-A813-4E20-8A35-0E4C46D75120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F662830F-A813-4E20-8A35-0E4C46D75120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F662830F-A813-4E20-8A35-0E4C46D75120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F662830F-A813-4E20-8A35-0E4C46D75120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{900655D5-341E-4A59-9405-08E98F2F8FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900655D5-341E-4A59-9405-08E98F2F8FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900655D5-341E-4A59-9405-08E98F2F8FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900655D5-341E-4A59-9405-08E98F2F8FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{831DE640-5058-4DFA-8881-782822B6FB2A} = {3C2C2981-F2CC-459C-99EC-AEC1523524D3}
+		{7542D159-4E69-4624-B9A0-0AA04E8EF5FB} = {E1108D5A-ECB0-4049-A789-A4B0DAEAC14B}
+		{F662830F-A813-4E20-8A35-0E4C46D75120} = {34B4EAED-D4DA-4CCA-BF09-C570D74A4303}
+		{900655D5-341E-4A59-9405-08E98F2F8FA4} = {024BEA24-36F4-4C51-A72B-593A1BCFE3FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6118EE14-306C-4490-B40E-BE66135A2E2E}
