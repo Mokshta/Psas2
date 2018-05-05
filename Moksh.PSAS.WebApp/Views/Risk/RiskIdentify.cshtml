@@ -1,0 +1,91 @@
+﻿@model Moksh.PSAS.Common.Model.RiskManagement
+
+@{
+	ViewBag.Title = "RiskIdentify";
+}
+
+<h2>Risk Identify</h2>
+
+<span>Logged In User:</span>@Session["PeopleID"].ToString();
+
+
+<script>
+	function ShowRiskIdentify() {
+		$('.dvRiskManagement').hide();
+		$('.dvRiskIdentify').show();
+	}
+	function ShowRiskCategory() {
+		$('.dvRiskManagement').hide();
+		$('.dvRiskCategory').show();
+	}
+	function ShowRiskAssign() {
+		$('.dvRiskManagement').hide();
+		$('.dvRiskAssign').show();
+	}
+	function ShowRiskAssess() {
+		$('.dvRiskManagement').hide();
+		$('.dvRiskAssess').show();
+	}
+</script>
+
+
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+	<div class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li><a onclick="ShowRiskIdentify();">Risk Identify</a> </li>
+			<li><a onclick="ShowRiskCategory();">Risk Categorize</a> </li>
+			<li><a onclick="ShowRiskAssign();">Risk Assign</a> </li>
+			<li><a onclick="ShowRiskAssess();">Risk Assess</a></li>
+		</ul>
+	</div>
+	<h4>RiskManagement</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+	
+
+
+	<div class="dvRiskIdentify dvRiskManagement">
+
+		
+
+	</div>
+
+
+	<div class="dvRiskCategory dvRiskManagement" style="display:none;">
+
+
+
+		
+
+	</div>
+
+
+
+	<div class="dvRiskAssign dvRiskManagement" style="display:none;">
+
+		
+	</div>
+
+
+
+
+
+	<div class="dvRiskAssess dvRiskManagement" style="display:none;">
+		
+	</div>
+
+	
+}
+
+
+
+
+

@@ -12,7 +12,7 @@ namespace Moksh.PSAS.Bussiness.Managers
     {
         public int CheckNGetUserID(string userEmailID, string password)
         {
-            int retVal = 0;
+            int retVal = 0; //what is retVal
             PeopleRepository peopleObj = new PeopleRepository();
             LoginModel loginObj= peopleObj.GetUserByDetails(userEmailID, password);
 

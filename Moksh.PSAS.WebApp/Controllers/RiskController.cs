@@ -9,9 +9,30 @@ namespace Moksh.PSAS.WebApp.Controllers
     public class RiskController : Controller
     {
         // GET: Risk
-        public ActionResult RiskManagement()
+        [HttpGet]
+        public ActionResult RiskIdentify()
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult RiskCategorize()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult RiskAssign()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult RiskAssess()
+        {
+            return View();
+        }
+
+
     }
-}
+    }

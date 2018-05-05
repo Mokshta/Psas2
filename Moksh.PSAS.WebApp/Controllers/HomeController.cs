@@ -1,10 +1,5 @@
 ﻿using Moksh.PSAS.Bussiness.Managers;
 using Moksh.PSAS.Common;
-using Moksh.PSAS.WebApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Moksh.PSAS.WebApp.Controllers
@@ -48,7 +43,9 @@ namespace Moksh.PSAS.WebApp.Controllers
                 int userID = peopleObj.CheckNGetUserID(userLoginData.Email, userLoginData.Password);
                 ViewData["PeopleID"] = userID;
                 Session["PeopleID"] = userID;
-                return RedirectToAction("RiskManagement", "Risk");
+                
+                return RedirectToAction("RiskIdentify", "Risk"); // redirect to RiskRegister page, in Risk folder
+               
             }
             else
             {
